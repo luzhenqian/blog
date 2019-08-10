@@ -7,25 +7,24 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  // 只能在组建内使用静态查询
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header></Header>
       <div
         style={{
           margin: `0 auto`,
@@ -36,9 +35,7 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}, Built with luzhenqian
         </footer>
       </div>
     </>
