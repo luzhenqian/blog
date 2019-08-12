@@ -1,3 +1,9 @@
-html {
+@font-face {
+  font-family: 'PingFang';
+  src: url('../fonts/PingFangRegular.ttf') format('woff');
+}
+
+html,
+body {
   background-color: lavenderblush;
 }

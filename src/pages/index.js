@@ -2,10 +2,12 @@ import React from "react"
 
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
+import Divider from "@material-ui/core/Divider"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { Card } from "@material-ui/core"
 
 export const query = graphql`
   {
@@ -20,39 +22,84 @@ export const query = graphql`
           frontmatter {
             date
             title
+            show
+          }
+          fields {
+            slug
           }
         }
       }
     }
   }
 `
-
 const useStyles = makeStyles({
   card: {
     color: "red",
     backgroundColor: "rgb(0,0,0,0)",
   },
   article: {
-    margin: "2rem 2rem",
-    backgroundColor: "white",
+    margin: "2rem 0",
+  },
+  title: {
+    fontSize: "2rem",
+    color: "rgb(30, 144, 255)",
+  },
+  date: {
+    margin: "0.5rem 0",
+    fontSize: "0.8rem",
+  },
+  show: {
+    margin: "1rem 0",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    lineClamp: "3",
+    boxOrient: "vertical",
+  },
+  aboutCard: {
+    marginTop: "2rem",
+    padding: "1rem",
+  },
+  name: {
+    display: "block",
+    fontWeight: "bolder",
+    textAlign: "center",
+  },
+  introduce: {
+    display: "block",
+    fontSize: "0.8rem",
   },
 })
 
-const Article = function(props) {
-  const classs = useStyles()
+const About = function() {
+  const classes = useStyles()
   return (
-    <div className={classs.article}>
-      标题：{props.data.frontmatter.title}
-      <br />
-      简介：
-      <div dangerouslySetInnerHTML={{ __html: props.data.html }}></div>
-      日期：{props.data.frontmatter.date}
+    <Card className={classes.aboutCard}>
+      <span className={classes.name}>卢振千</span>
+      <span className={classes.introduce}>程序员，擅长学习，精通Web应用</span>
+    </Card>
+  )
+}
+const Categories = function() {
+  const classes = useStyles()
+  return <Card></Card>
+}
+
+const Article = function({ data }) {
+  const classes = useStyles()
+  return (
+    <div className={classes.article}>
+      <Link to={data.fields.slug} className={classes.title}>
+        {data.frontmatter.title}
+      </Link>
+      <div className={classes.date}>{data.frontmatter.date}</div>
+      <div className={classes.show}>摘要：{data.frontmatter.show}</div>
+      <Divider />
     </div>
   )
 }
 
 const IndexPage = ({ data }) => {
-  console.log(data.allMarkdownRemark.edges)
   return (
     <Layout>
       <SEO title="Home" />
@@ -63,8 +110,10 @@ const IndexPage = ({ data }) => {
             return <Article key={index} data={node} />
           })}
         </Grid>
-        <Grid item xs={4}>
-          分类 关于
+        <Grid xs={1}></Grid>
+        <Grid item xs={3}>
+          <About />
+          <Categories />
         </Grid>
       </Grid>
     </Layout>

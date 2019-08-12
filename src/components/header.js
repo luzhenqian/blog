@@ -2,14 +2,16 @@ import React from "react"
 import { fade, makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import IconButton from "@material-ui/core/IconButton"
 import InputBase from "@material-ui/core/InputBase"
-import MenuIcon from "@material-ui/icons/Menu"
 import SearchIcon from "@material-ui/icons/Search"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
+  },
+  appBar: {
+    backgroundColor: "rgb(25, 118, 210)",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -19,10 +21,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
-    marginLeft: '2rem',
-    color: 'white',
-    fontSize: '1rem',
-    fontWeight: 400
+    color: "white",
+    fontSize: "1rem",
+    fontWeight: 400,
   },
   search: {
     position: "relative",
@@ -66,17 +67,19 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-            <div className={classes.title}>卢振千博客</div>
-          </IconButton>
+          </IconButton> */}
+          <Link to="/" className={classes.title}>
+            卢振千博客
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

@@ -33,10 +33,8 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with luzhenqian
-        </footer>
+        <main style={{ padding: `1rem 0` }}>{children}</main>
+        <footer>© {new Date().getFullYear()}, Built with luzhenqian</footer>
       </div>
     </>
   )
