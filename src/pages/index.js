@@ -9,29 +9,55 @@ import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
 import { Card } from "@material-ui/core"
 
-export const query = graphql`
-  {
-    allMarkdownRemark(
-      limit: 10
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          html
-          id
-          frontmatter {
-            date
-            title
-            show
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
+const About = function() {
+  const classes = useStyles({})
+  return (
+    <Card className={classes.aboutCard}>
+      <span className={classes.name}>卢振千</span>
+      <span className={classes.introduce}>程序员，擅长学习，精通Web应用</span>
+    </Card>
+  )
+}
+const Categories = function() {
+  const classes = useStyles({})
+  return <Card></Card>
+}
+
+const Article = function({ data }) {
+  const classes = useStyles({})
+  return (
+    <div className={classes.article}>
+      <Link to={data.fields.slug} className={classes.title}>
+        {data.frontmatter.title}
+      </Link>
+      <div className={classes.date}>{data.frontmatter.date}</div>
+      <div className={classes.description}>摘要：{data.frontmatter.description}</div>
+      <Divider />
+    </div>
+  )
+}
+
+const IndexPage = ({ data }) => {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Grid container>
+        <Grid item xs={8}>
+          最新文章
+          {data.allMarkdownRemark.edges.map(({ node }, index) => {
+            return <Article key={index} data={node} />
+          })}
+        </Grid>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={3}>
+          <About />
+          <Categories />
+        </Grid>
+      </Grid>
+    </Layout>
+  )
+}
+
 const useStyles = makeStyles({
   card: {
     color: "red",
@@ -48,12 +74,12 @@ const useStyles = makeStyles({
     margin: "0.5rem 0",
     fontSize: "0.8rem",
   },
-  show: {
+  description: {
     margin: "1rem 0",
     overflow: "hidden",
     textOverflow: "ellipsis",
     display: "-webkit-box",
-    lineClamp: "3",
+    lineClamp: 3,
     boxOrient: "vertical",
   },
   aboutCard: {
@@ -71,53 +97,27 @@ const useStyles = makeStyles({
   },
 })
 
-const About = function() {
-  const classes = useStyles()
-  return (
-    <Card className={classes.aboutCard}>
-      <span className={classes.name}>卢振千</span>
-      <span className={classes.introduce}>程序员，擅长学习，精通Web应用</span>
-    </Card>
-  )
-}
-const Categories = function() {
-  const classes = useStyles()
-  return <Card></Card>
-}
-
-const Article = function({ data }) {
-  const classes = useStyles()
-  return (
-    <div className={classes.article}>
-      <Link to={data.fields.slug} className={classes.title}>
-        {data.frontmatter.title}
-      </Link>
-      <div className={classes.date}>{data.frontmatter.date}</div>
-      <div className={classes.show}>摘要：{data.frontmatter.show}</div>
-      <Divider />
-    </div>
-  )
-}
-
-const IndexPage = ({ data }) => {
-  return (
-    <Layout>
-      <SEO title="Home" />
-      <Grid container>
-        <Grid item xs={8}>
-          最新文章
-          {data.allMarkdownRemark.edges.map(({ node }, index) => {
-            return <Article key={index} data={node} />
-          })}
-        </Grid>
-        <Grid xs={1}></Grid>
-        <Grid item xs={3}>
-          <About />
-          <Categories />
-        </Grid>
-      </Grid>
-    </Layout>
-  )
-}
-
+export const query = graphql`
+  {
+    allMarkdownRemark(
+      limit: 10
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          html
+          id
+          frontmatter {
+            date
+            title
+            description
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 export default IndexPage

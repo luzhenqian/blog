@@ -14,6 +14,12 @@ module.exports = {
       },
     },
     {
+      resolve: `@debiki/gatsby-plugin-talkyard`,
+      options: {
+        talkyardServerUrl: "https://comments-demo.talkyard.io",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
