@@ -64,7 +64,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles()
-
   return (
     <div className={classes.grow}>
       <AppBar position="static" className={classes.appBar}>

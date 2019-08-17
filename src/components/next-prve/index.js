@@ -40,7 +40,6 @@ export default ({ id }) => {
   const { edges } = query.allMarkdownRemark
   for (let i = 0; i < edges.length; i++) {
     if (edges[i].node.id === id) {
-      console.log(edges[i])
       if (edges[i].previous === null) {
         prev = <span>没有更多了</span>
       } else {
