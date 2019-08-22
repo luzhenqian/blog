@@ -1,3 +1,6 @@
 {
-  "typescript.validate.enable": false
+  "typescript.validate.enable": false,
+  "commentTranslate.targetLanguage": "zh-CN",
+  "typescript.suggest.completeJSDocs": true,
+  "tslint.jsEnable": false
 }

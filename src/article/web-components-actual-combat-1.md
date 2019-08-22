@@ -193,7 +193,7 @@ class IButton extends HTMLElement {
   constructor() {
     super();
     const templateEl = document.createElement("template");
-    templateEl.innerHTML += `
+    templateEl.innerHTML = `
       <style>
         button {
             font-weight: 600;
@@ -236,7 +236,7 @@ class IButton extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: "closed" });
     const templateEl = document.createElement("template");
-    templateEl.innerHTML += `
+    templateEl.innerHTML = `
       <style>
         button {
             font-weight: 600;
@@ -335,11 +335,3 @@ nodeType的类型有很多，但这里对我们有意义的只有1和3。
 ```html
 <button>${childEls}</button>
 ```
-
-
-
-
-
-比如props的问题
-
-全局共享状态

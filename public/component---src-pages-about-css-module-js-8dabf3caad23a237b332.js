@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{197:function(e,n,t){"use strict";t.r(n);var a=t(0),r=t.n(a),c=t(194),u=t.n(c),l=function(e){var n=e.children;return r.a.createElement("div",{className:u.a.container},n)};n.default=function(){return r.a.createElement(l,null,r.a.createElement("h1",null,"About CSS Module"))}}}]);
-//# sourceMappingURL=component---src-pages-about-css-module-js-8dabf3caad23a237b332.js.map

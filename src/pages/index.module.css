@@ -1,0 +1,38 @@
+.article {
+  margin: 2rem 0;
+}
+
+.title {
+  font-size: 2rem;
+  color: rgb(30, 144, 255);
+}
+
+.date {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.description {
+  margin: 1rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.aboutCard {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.name {
+  display: block;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.introduce {
+  display: block;
+  font-size: 0.8rem;
+}
