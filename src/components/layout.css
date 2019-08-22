@@ -715,9 +715,10 @@ pre tt:after {
   }
 }
 
-html,body {
+html,
+body {
   font-family: 'PingFang';
-  background-color: white;
+  background-color: var(--YUNFENGBAI);
 }
 
 a {

@@ -69,8 +69,9 @@ export default ({ id }) => {
   // FIXME:一个 js 中有多个 graphql 查询时，会混乱。默认的 data 会使用这个查询结果
   return (
     <Paper className={classes.nextPrev}>
-      <div className={classes.prev}>上一篇：{prev}</div>
-      <div className={classes.next}>下一篇：{next}</div>
+      {/* FIXME: next 和 prev 反了，估计是 graphql 的原因 */}
+      <div className={classes.prev}>上一篇：{next}</div>
+      <div className={classes.next}>下一篇：{prev}</div>
     </Paper>
   )
 }

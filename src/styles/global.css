@@ -5,5 +5,30 @@
 
 html,
 body {
-  background-color: lavenderblush;
+  /* 丁香淡紫 */
+  --DINGXIANGDANZI: #e9d7df;
+  /* 湖水蓝 */
+  --HUSHUILAN: #b0d5df;
+  /* 远峰白 */
+  --YUNFENGBAI: #d8e3e7;
+  /* 宝石蓝 */
+  --BAOSHILAN: #2486b9;
+  /* 榴子红 */
+  --LIUZIHONG: #f1908c;
+  /* 姜红 */
+  --JIANGHONG: #eeb8c3;
+  /* 玫瑰红 */
+  --MEIGUIHONG: #d2357d;
+  /* 靛蓝 */
+  --DIANLAN: #1661ab;
+  /* 钢蓝 */
+  --GANGLAN: #142334;
+  /* 虹蓝 */
+  --HONGLAN:#2177b8;
+}
+
+.MuiCard-root,
+.MuiPaper-elevation1 {
+  background-color: var(--LIUZIHONG) !important;
+  color: #2486b9;
 }

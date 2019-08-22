@@ -6,7 +6,7 @@ import { Breadcrumbs, Divider, makeStyles } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NextPrev from "../components/next-prve"
-import TalkyardCommentsIframe from "@debiki/gatsby-plugin-talkyard"
+// import TalkyardCommentsIframe from "@debiki/gatsby-plugin-talkyard"
 
 export default ({ data }) => {
   const post = data.markdownRemark
@@ -26,8 +26,8 @@ export default ({ data }) => {
         dangerouslySetInnerHTML={{ __html: post.html }}
       ></div>
       <NextPrev id={post.id} />
-      发表评论
-      <TalkyardCommentsIframe />
+      {/* 发表评论 */}
+      {/* <TalkyardCommentsIframe /> */}
     </Layout>
   )
 }
@@ -48,7 +48,7 @@ function Navigator() {
     <div className={classes.navigator}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link to="/">首页</Link>
-        <Link to="/blog-list">博客</Link>
+        <Link to="/blog">博客</Link>
       </Breadcrumbs>
       <Divider />
     </div>

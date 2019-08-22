@@ -11,28 +11,12 @@ import PropTypes from "prop-types"
 
 import Header from "./header"
 import "./layout.css"
+import Styles from "./layout.module.css"
 const Layout = ({ children }) => {
-  // 只能在组建内使用静态查询
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `);
   return (
     <>
       <Header></Header>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <div className={Styles.container}>
         <main style={{ padding: `1rem 0` }}>{children}</main>
         <footer>© {new Date().getFullYear()}, Built with luzhenqian</footer>
       </div>

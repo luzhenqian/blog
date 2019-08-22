@@ -1,0 +1,19 @@
+.appBar {
+  background-color: var(--HUSHUILAN) !important;
+  color: var(--HONGLAN) !important;
+}
+
+.search {
+  margin: 0 0 0 4rem;
+  background-color: var(--YUNFENGBAI);
+}
+
+.search:hover {
+  background-color: var(--JIANGHONG);
+}
+
+.searchIcon {
+  display: inline-block;
+  padding: 0 0.5rem;
+  vertical-align: text-top;
+}
